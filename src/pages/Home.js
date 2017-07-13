@@ -21,7 +21,7 @@ import SideBar from '../components/SideBar';
 export default class Home extends Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
             drawerOpened: false
         }
@@ -46,7 +46,7 @@ export default class Home extends Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>Dashboard</Title>
+                        <Title>BEMOSS</Title>
                     </Body>
                     <Right />
                 </Header>

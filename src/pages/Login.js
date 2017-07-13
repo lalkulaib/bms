@@ -30,7 +30,7 @@ export default class Login extends Component {
             password: "",
             response: "",
             loginProgress: false,
-            signupProgress: false
+            signupProgress: false,
         };
 
         this.signup = this.signup.bind(this);
@@ -86,16 +86,15 @@ export default class Login extends Component {
         <TouchableWithoutFeedback onPress={() => DismissKeyboard()}>
             <View style={CommonStyle.container}>
                 <View style={styles.formGroup}>
-                    <Text style={styles.title}>BEMOSS</Text>
 
-                    <View style ={{justifyContent: 'center', alignItems: 'center', marginTop:60}}>
+                    <View style ={{ justifyContent: 'center', alignItems: 'center', marginTop:40 }}>
                         <Image
                           style={{ width: '80%', height: 70, alignSelf: 'center', resizeMode: 'contain' }}
                           source={require('../Img/BEMOSS_logo.png')}
                         />
                     </View>
 
-                    <View style ={{justifyContent: 'center', alignItems: 'center', marginTop:30}}>
+                    <View style ={{ justifyContent: 'center', alignItems: 'center', marginTop: 60 }}>
                         <Item regular>
                            <Icon active name='mail' />
                            <Input
@@ -125,9 +124,9 @@ export default class Login extends Component {
                     </View>
 
                     <View style={styles.submit}>
-                        <Button onPress={this.signup} style={CommonStyle.buttons} textStyle={{ fontSize: 18 }} isLoading={this.state.signupProgress}>
+                        {/* <Button onPress={this.signup} style={CommonStyle.buttons} textStyle={{ fontSize: 18 }} isLoading={this.state.signupProgress}>
                           Sign up
-                        </Button>
+                        </Button> */}
                         <Button onPress={this.login} style={styles.buttons} textStyle={{ fontSize: 18 }} isLoading={this.state.loginProgress}>
                           Login
                         </Button>
@@ -145,11 +144,9 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-
     formGroup: {
         padding: 50
     },
-
     title: {
         textAlign: "center",
         color: "#000",
@@ -159,11 +156,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         borderBottomColor: '#ddd'
     },
-
     submit: {
         paddingTop: 30
     },
-
     response: {
         textAlign: "center",
         paddingTop: 0,
