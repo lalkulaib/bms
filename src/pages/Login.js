@@ -69,7 +69,7 @@ export default class Login extends Component {
         try {
           //await firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
           const response = await api('login', 'POST', { email: this.state.email, password: this.state.password });
-
+          console.log('[Login Response]', response)
           if (response.success) Actions.home();
           else this.setState({ response: response.message })
 

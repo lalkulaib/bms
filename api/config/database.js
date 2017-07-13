@@ -1,5 +1,5 @@
 module.exports = {
 
-    'url' : 'mongodb://mobiletop527:mobiletop527@ds153752.mlab.com:53752/mobiletop527_db' 
+    'url' : 'mongodb://bmsAdmin:bmsPwd@ec2-13-59-135-244.us-east-2.compute.amazonaws.com:27017/bmsDB' 
 
 };
