@@ -27,7 +27,7 @@ export default class DeviceRow extends Component {
                         />
 
             case 'ac':
-                return <Text>{this.props.status}</Text>
+                return <Text style={{ fontWeight: 'bold', fontSize: 18 }}>{this.props.status}</Text>
 
             default:
                 return <View />
@@ -41,7 +41,7 @@ export default class DeviceRow extends Component {
                     <Image style={{width: 30, height: 30}} source={this.props.img} />
                 </View>
 
-                <Text style={{ paddingLeft: 20 }}>{this.props.name}</Text>
+                <Text style={{ fontSize: 18, paddingLeft: 20 }}>{this.props.name}</Text>
 
                 <Right style={{ paddingRight: 20 }}>
                     { this.renderStatus() }

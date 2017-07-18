@@ -77,14 +77,14 @@ export default class Home extends Component {
             >
             <Container>
 
-                <Header style={{ backgroundColor: Colors.header }}>
+                <Header>
                     <Left>
                         <Button transparent onPress={ () => this.setState({ drawerOpened: true }) }>
-                          <Icon name='menu' style={{fontSize: 30, color: '#FFF'}} />
+                          <Icon name='menu' style={{ color: '#000', fontSize: 30 }} />
                         </Button>
                     </Left>
                     <Body>
-                        <Title style={{ color: '#FFF', fontSize: 20 }}>BEMOSS</Title>
+                        <Title>BEMOSS</Title>
                     </Body>
                     <Right />
                 </Header>
