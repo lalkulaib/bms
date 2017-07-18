@@ -13,10 +13,8 @@ import {
 import { Item, Input, Icon } from 'native-base';
 
 import { Actions } from 'react-native-router-flux';
-import Button from "apsl-react-native-button";
-import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
-import DismissKeyboard from "dismissKeyboard";
-import CommonStyle from "../components/styles.css";
+import Button from 'apsl-react-native-button';
+import DismissKeyboard from 'dismissKeyboard';
 import firebase from '../firebase/firebase';
 import api from '../utils/api';
 
@@ -26,9 +24,9 @@ export default class Login extends Component {
         super(props);
 
         this.state = {
-            email: "",
-            password: "",
-            response: "",
+            email: '',
+            password: '',
+            response: '',
             loginProgress: false,
             signupProgress: false,
         };
@@ -53,7 +51,6 @@ export default class Login extends Component {
           else this.setState({ response: response.message });
 
      } catch (error) {
-
           this.setState({ response: error.toString() })
       }
 
@@ -84,7 +81,7 @@ export default class Login extends Component {
     render() {
       return (
         <TouchableWithoutFeedback onPress={() => DismissKeyboard()}>
-            <View style={CommonStyle.container}>
+            <View style={styles.container}>
                 <View style={styles.formGroup}>
 
                     <View style ={{ justifyContent: 'center', alignItems: 'center', marginTop:40 }}>
@@ -103,7 +100,7 @@ export default class Login extends Component {
                                autoCapitalize="none"
                                type="email"
                                style={{ height: 40 }}
-                               onChangeText={ email => { this.setState({ email }) }}
+                               onChangeText={ email => this.setState({ email }) }
                            />
                         </Item>
                     </View>
@@ -112,21 +109,18 @@ export default class Login extends Component {
                         <Item regular>
                             <Icon active name='lock' />
                             <Input
-                             placeholder='password'
-                             autoCorrect={false}
-                             autoCapitalize="none"
-                             type="password"
-                             secureTextEntry
-                             style={{ height: 40 }}
-                             onChangeText={ password => { this.setState({ password }) }}
+                                placeholder='password'
+                                autoCorrect={false}
+                                autoCapitalize="none"
+                                type="password"
+                                secureTextEntry
+                                style={{ height: 40 }}
+                                onChangeText={ password => this.setState({ password }) }
                             />
                         </Item>
                     </View>
 
                     <View style={styles.submit}>
-                        {/* <Button onPress={this.signup} style={CommonStyle.buttons} textStyle={{ fontSize: 18 }} isLoading={this.state.signupProgress}>
-                          Sign up
-                        </Button> */}
                         <Button onPress={this.login} style={styles.buttons} textStyle={{ fontSize: 18 }} isLoading={this.state.loginProgress}>
                           Login
                         </Button>
@@ -144,6 +138,9 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
     formGroup: {
         padding: 50
     },

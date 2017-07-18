@@ -7,12 +7,12 @@ import Blank  from './src/pages/Blank';
 
 export default class App extends React.Component {
   render() {
-    return (    
+    return (
       <Router>
         <Scene key="root">
-          <Scene key="blank" component={Blank} initial={true} hideNavBar={true} />
+          <Scene key="blank" component={Blank}  hideNavBar={true} />
           <Scene key="login" component={Login} hideNavBar={true} />
-          <Scene key="home"  component={Home}  hideNavBar={true} />
+          <Scene key="home"  component={Home}  initial={true} hideNavBar={true} />
         </Scene>
       </Router>
     );

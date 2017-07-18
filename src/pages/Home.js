@@ -6,24 +6,62 @@ import {
     Image,
     TouchableWithoutFeedback,
     TouchableOpacity,
-    Switch
+    Switch,
+    ListView
 } from 'react-native';
-import { Icon, Header, Left, Right, Body, Title, Content, Container, Button } from 'native-base';
+import { Icon, Header, Left, Right, Body, Title, Content, Container, Footer, Button } from 'native-base';
 import Drawer from 'react-native-drawer';
 import { Actions } from 'react-native-router-flux';
-import CommonStyle from '../components/styles.css';
 import Display from 'react-native-display';
 
-import { Nest } from './nest/tab-nest';
 import SideBar from '../components/SideBar';
+import DeviceList from '../components/DeviceList';
+import Colors from '../theme/colors'
+
+
+const fakeDevices = [
+    {
+        img: require('../Img/light.jpg'),
+        type: 'light',
+        name: 'Light1',
+        status: 'off'
+    },
+    {
+        img: require('../Img/insight.png'),
+        type: 'plug',
+        name: 'Insight',
+        status: 'on'
+    },
+    {
+        img: require('../Img/livingroom.png'),
+        type: 'plug',
+        name: 'Living Room',
+        status: 'off'
+    },
+    {
+        img: require('../Img/mini.png'),
+        type: 'plug',
+        name: 'Mini',
+        status: 'on'
+    },
+    {
+        img: require('../Img/temp.png'),
+        type: 'ac',
+        name: 'AC',
+        status: '78'
+    }
+]
 
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
 
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
         this.state = {
-            drawerOpened: false
+            drawerOpened: false,
+            dataSource: ds.cloneWithRows(fakeDevices)
         }
     }
 
@@ -39,23 +77,27 @@ export default class Home extends Component {
             >
             <Container>
 
-                <Header>
+                <Header style={{ backgroundColor: Colors.header }}>
                     <Left>
                         <Button transparent onPress={ () => this.setState({ drawerOpened: true }) }>
-                          <Icon name='menu' style={{fontSize: 30, color: 'black'}} />
+                          <Icon name='menu' style={{fontSize: 30, color: '#FFF'}} />
                         </Button>
                     </Left>
                     <Body>
-                        <Title>BEMOSS</Title>
+                        <Title style={{ color: '#FFF', fontSize: 20 }}>BEMOSS</Title>
                     </Body>
                     <Right />
                 </Header>
 
-                <Content>
-                    <Display enable>
-                        <Nest />
-                    </Display>
+                <Content style={{ backgroundColor: '#FFF' }}>
+                    <DeviceList dataSource={this.state.dataSource} />
                 </Content>
+
+                <Footer style={{ flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 30, paddingRight: 30, paddingTop: 10}}>
+                    <Icon name="star" />
+                    <Icon name="cloud" />
+                    <Icon name="alarm" />
+                </Footer>
 
             </Container>
         </Drawer>

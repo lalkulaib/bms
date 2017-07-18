@@ -10,7 +10,6 @@ export default function api(url, method, body){
         body: JSON.stringify(body)
     });
 
-
     return fetch(myRequest)
         .then(response => response.json())
         .catch(err => err)
