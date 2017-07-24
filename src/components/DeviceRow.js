@@ -38,7 +38,7 @@ export default class DeviceRow extends Component {
         return (
             <View style={ styles.container }>
                 <View style={{ paddingLeft: 10 }}>
-                    <Image style={{width: 30, height: 30}} source={this.props.img} />
+                    <Image style={{width: 60, height: 60}} source={this.props.img} />
                 </View>
 
                 <Text style={{ fontSize: 18, paddingLeft: 20 }}>{this.props.name}</Text>
@@ -57,8 +57,9 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
+        paddingTop: 10,
+        paddingBottom: 10,
         flexDirection: 'row',
-        height: 50,
         alignItems: 'center'
     }
 });

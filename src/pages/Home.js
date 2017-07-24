@@ -68,45 +68,60 @@ export default class Home extends Component {
     render() {
         return (
             <Drawer
-                content          = { <SideBar closeDrawer={ () => this.setState({ drawerOpened: false }) } /> }
-                onClose          = { () => this.setState({ drawerOpened: false }) }
+              content          = { <SideBar closeDrawer={ () => this.setState({ drawerOpened: false }) } /> }
+              onClose          = { () => this.setState({ drawerOpened: false }) }
     	        open             = { this.state.drawerOpened }
-                openDrawerOffset = { .35 }
-                tapToClose       = { true }
-                type             = "overlay"
+              openDrawerOffset = { .35 }
+              tapToClose       = { true }
+              type             = "overlay"
             >
-            <Container>
+                <Container>
 
-                <Header>
-                    <Left>
-                        <Button transparent onPress={ () => this.setState({ drawerOpened: true }) }>
-                          <Icon name='menu' style={{ color: '#000', fontSize: 30 }} />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title>BEMOSS</Title>
-                    </Body>
-                    <Right />
-                </Header>
+                    <Header style={styles.header}>
+                        <Left>
+                            <Button transparent onPress={ () => this.setState({ drawerOpened: true }) }>
+                              <Icon name='menu' style={styles.menuIcon} />
+                            </Button>
+                        </Left>
+                        <Body>
+                            <Title>BEMOSS</Title>
+                        </Body>
+                        <Right />
+                    </Header>
 
-                <Content style={{ backgroundColor: '#FFF' }}>
-                    <DeviceList dataSource={this.state.dataSource} />
-                </Content>
+                    <Content style={styles.content}>
+                        <DeviceList dataSource={this.state.dataSource} />
+                    </Content>
 
-                <Footer style={{ flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 30, paddingRight: 30, paddingTop: 10}}>
-                    <Icon name="star" />
-                    <Icon name="cloud" />
-                    <Icon name="alarm" />
-                </Footer>
+                    <Footer style={styles.footer}>
+                        <Icon name="star" />
+                        <Icon name="cloud" />
+                        <Icon name="alarm" />
+                    </Footer>
 
-            </Container>
-        </Drawer>
+                </Container>
+            </Drawer>
         );
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
+const styles = {
+    menuIcon: {
+        color: '#000',
+        fontSize: 30
     },
-});
+    header: {
+        backgroundColor: '#F1D854'
+    },
+    content: {
+        backgroundColor: '#FFF'
+    },
+    footer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingLeft: 30,
+        paddingRight: 30,
+        paddingTop: 10
+    }
+
+};

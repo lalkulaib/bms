@@ -84,14 +84,12 @@ export default class Login extends Component {
             <View style={styles.container}>
                 <View style={styles.formGroup}>
 
-                    <View style ={{ justifyContent: 'center', alignItems: 'center', marginTop:40 }}>
-                        <Image
-                          style={{ width: '80%', height: 70, alignSelf: 'center', resizeMode: 'contain' }}
-                          source={require('../Img/BEMOSS_logo.png')}
-                        />
-                    </View>
+                    <Image
+                        style={styles.logo}
+                        source={require('../Img/BEMOSS_logo.png')}
+                    />
 
-                    <View style ={{ justifyContent: 'center', alignItems: 'center', marginTop: 60 }}>
+                    <View style ={styles.emailInput}>
                         <Item regular>
                            <Icon active name='mail' />
                            <Input
@@ -105,7 +103,7 @@ export default class Login extends Component {
                         </Item>
                     </View>
 
-                    <View style ={{ marginTop: 10, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style ={styles.passwordInput}>
                         <Item regular>
                             <Icon active name='lock' />
                             <Input
@@ -121,7 +119,12 @@ export default class Login extends Component {
                     </View>
 
                     <View style={styles.submit}>
-                        <Button onPress={this.login} style={styles.buttons} textStyle={{ fontSize: 18 }} isLoading={this.state.loginProgress}>
+                        <Button
+                            onPress={this.login}
+                            style={styles.buttons}
+                            textStyle={{ fontSize: 18 }}
+                            isLoading={this.state.loginProgress}
+                        >
                           Login
                         </Button>
                     </View>
@@ -138,6 +141,23 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
+    logo: {
+        width: '80%',
+        height: 70,
+        alignSelf: 'center',
+        resizeMode: 'contain',
+        marginTop: 40
+    },
+    emailInput: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 60
+    },
+    passwordInput: {
+        marginTop: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
     container: {
         flex: 1
     },
