@@ -9,6 +9,7 @@ export default class DeviceRow extends Component {
       this.state = {
         lightStatus: this.props.status === 'on' ? true : false
       }
+      console.log(this.props)
     }
 
     renderStatus() {
@@ -35,7 +36,7 @@ export default class DeviceRow extends Component {
             <Image style={{width: 60, height: 60}} source={this.props.img} />
           </View>
 
-          <Text style={{ fontSize: 18, paddingLeft: 20 }}>{this.props.name}</Text>
+          <Text style={{ fontSize: 18, paddingLeft: 20 }}>{this.props.title}</Text>
 
           <Right style={{ paddingRight: 20 }}>
             { this.renderStatus() }

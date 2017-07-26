@@ -23,31 +23,31 @@ const fakeDevices = [
     {
         img: require('../Img/light.jpg'),
         type: 'light',
-        name: 'Light1',
+        title: 'Light1',
         status: 'off'
     },
     {
         img: require('../Img/insight.png'),
         type: 'plug',
-        name: 'Insight',
+        title: 'Insight',
         status: 'on'
     },
     {
         img: require('../Img/livingroom.png'),
         type: 'plug',
-        name: 'Living Room',
+        title: 'Living Room',
         status: 'off'
     },
     {
         img: require('../Img/mini.png'),
         type: 'plug',
-        name: 'Mini',
+        title: 'Mini',
         status: 'on'
     },
     {
         img: require('../Img/temp.png'),
         type: 'ac',
-        name: 'AC',
+        title: 'AC',
         status: '78'
     }
 ]

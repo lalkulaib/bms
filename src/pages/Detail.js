@@ -55,7 +55,7 @@ export default class Detail extends Component {
             <View style={{paddingLeft: 10}}>
               <Image style={{width: 60, height: 60}} source={this.props.img} />
             </View>
-            <Text style={{fontSize: 18, paddingLeft: 20}}>{this.props.name}</Text>
+            <Text style={{fontSize: 18, paddingLeft: 20}}>{this.props.title}</Text>
             <Right style={{paddingRight: 20}}>
               { this.renderStatus() }
             </Right>
