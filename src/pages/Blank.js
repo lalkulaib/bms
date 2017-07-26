@@ -7,12 +7,13 @@ import api from '../utils/api';
 export default class Blank extends Component {
 
   componentDidMount() {
-      api('isloggedin', 'GET')
-        .then(res => {
-            console.log('[Check login status]', res)
-            res.status ? Actions.home() : Actions.login()
-        })
-        .catch(err => Actions.login())
+    Actions.home()
+      // api('isloggedin', 'GET')
+      //   .then(res => {
+      //       console.log('[Check login status]', res)
+      //       res.status ? Actions.home() : Actions.login()
+      //   })
+      //   .catch(err => Actions.login())
   }
 
   render() {
