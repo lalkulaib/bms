@@ -81,7 +81,7 @@ export default class AcDetail extends Component {
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
             <Text style={{ fontSize: 20, marginTop: 20 }}>Hold Until 6:00 PM</Text>
             <Button style={{ marginTop: 20, width: '80%', alignSelf: 'center', backgroundColor: 'gray'}}>
-              <Text style={{paddingRight: 50, color: 'white'}}>Press for Options</Text>
+              <Text style={{color: 'white', textAlign:'center', justifyContent: 'center', alignItems: 'center'}}>Press for Options</Text>
             </Button>
           </View>
 

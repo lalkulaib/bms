@@ -1,5 +1,5 @@
 //const serverUrl = 'http://localhost:8080/';
-const serverUrl = 'http://13.59.135.244:8080/';
+const serverUrl = 'http://192.168.10.222:8082';
 export default function api(url, method, body){
     var myRequest = new Request(serverUrl + url, {
         method: method,
