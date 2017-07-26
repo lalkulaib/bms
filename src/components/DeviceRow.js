@@ -31,7 +31,9 @@ export default class DeviceRow extends Component {
 
     render() {
       return (
-        <TouchableOpacity style={styles.container} onPress={() => Actions.detail(this.props)} >
+        <TouchableOpacity style={styles.container}
+          onPress={() => this.props.type === 'ac' ? Actions.acDetail(this.props) : Actions.detail(this.props)} 
+        >
           <View style={{ paddingLeft: 10 }}>
             <Image style={{width: 60, height: 60}} source={this.props.img} />
           </View>
