@@ -76,27 +76,37 @@ export default class Home extends Component {
             'user': 'admin',
             'auth': 'admin',
         }
-        api(url, method, info).then(res => {
-           devType = res.data.device_type
-           name = res.data.vendor_name
-        })
-        .catch(err => {
-            //handle error
-        })
 
         var info1 = {
             'tablename': 'devicedata',
             'where_data': {},
             'user': 'admin',
             'auth': 'admin',
-        }
-        api(url, method, info1).then(res => {
-            stat = res.data.status
-        })
-        .catch(err => {
 
+        }
+        Promise.all([
+          api(url, method, info),
+          api(url, method, info1)
+        ]).then(([res1, res2]) => {
+            console.log(res1, res2)
+            res1.map(item1 => {
+             const temp = res2.find(item2 => item2.agent_id== item1.agent_id);
+             if (temp) {
+               if (temp.status == undefined) item1.status = temp.temperature
+               else item1.status = temp.status
+             }
+
+
+
+                console.log("STATUS", item1.status)
+
+
+          })
+          console.log("ABC", res1)
         })
-        this.setState({fakeDevices: [...this.state.fakeDevices, 
+
+
+        this.setState({fakeDevices: [...this.state.fakeDevices,
             { img: require('../Img/mini.png'), type: devType, title: name, status: stat}]})
 
     }
